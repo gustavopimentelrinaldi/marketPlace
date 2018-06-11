@@ -9,15 +9,48 @@
   <title>Document</title>
 </head>
 <body ng-app="ngCribs" ng-controller="cribsController">
-  <div class="card" ng-repeat="crib in cribs" style="padding: 20px">
+  
+  <nav class="navbar navbar-dark bg-dark">
     <div class="container">
-    <h3>{{ crib.address }}</h3>
-    <p><strong>Type: </strong>{{ crib.type }}</p>
-    <p><strong>Description: </strong>{{ crib.description }}</p>
-    <p><strong>Price: </strong>{{ crib.price | currency }}</p>
+      <div class="navbar-header">
+        <a href="" class="navbar-brand">ng-cribs</a>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="card col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mr-1" ng-repeat="crib in cribs" style="padding: 0; margin: 20px 0;">
+        <img class="card-img-top" ng-src="images/{{crib.image}}.jpg" alt="Card image cap">
+        <div class="card-body">
+          <div class="caption">
+            <div ng-hide="showDetails === true">
+              <p><strong>Price: </strong>{{ crib.price | currency }}</p>
+              <p><strong>Address: </strong>{{ crib.address }}</p>
+              <p><strong>Type: </strong>{{ crib.type }}</p>
+            </div>
+
+            <button class="btn btn-success" ng-hide="showDetails === true" ng-click="showDetails = !showDetails">Details</button>
+
+            <div class="details" ng-show="showDetails === true">
+              <div class="row justify-content-center">
+                <h5><span class="badge mr-2 badge-info">Beds: {{crib.details.bedrooms}}</span></h5>
+                <h5><span class="badge mr-2 badge-info">Beds: {{crib.details.bathrooms}}</span></h5>
+                <h5><span class="badge mr-2 badge-info">Beds: {{crib.details.area}}</span></h5>
+                <p>{{ crib.description }}</p>
+              </div>
+              <div class="row justify-content-center">
+                <button class="btn btn-secondary" ng-show="showDetails === true" ng-click="showDetails = !showDetails">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <pre>{{ cribs | json }}</pre>
+
+
+  
   
   <script src="node_modules/angular/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
