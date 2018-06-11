@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -8,14 +8,23 @@
   <link rel="stylesheet" href="node_modules/bootstrap/css/bootstrap.min.css"/>
   <title>Document</title>
 </head>
-<body ng-app="ngCribs">
-  <p>Nothing here {{'yet' + '!'}}</p>
+<body ng-app="ngCribs" ng-controller="cribsController">
+  <div class="card" ng-repeat="crib in cribs" style="padding: 20px">
+    <div class="container">
+    <h3>{{ crib.address }}</h3>
+    <p><strong>Type: </strong>{{ crib.type }}</p>
+    <p><strong>Description: </strong>{{ crib.description }}</p>
+    <p><strong>Price: </strong>{{ crib.price | currency }}</p>
+    </div>
+  </div>
+  <pre>{{ cribs | json }}</pre>
   
-  <script src="node_modules/angular/angular.js"></script>
+  <script src="node_modules/angular/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
   <script src="node_modules/angular-ui-bootstrap/ui-bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
   <script src="node_modules/angular-ui-bootstrap/ui-bootstrap-tpls.min.js"></script>
   <script src="app.js"></script>
+  <script src="scripts/cribsController.js"></script>
 </body>
 </html>
