@@ -13,14 +13,152 @@
   <nav class="navbar navbar-dark bg-dark">
     <div class="container">
       <div class="navbar-header">
-        <a href="" class="navbar-brand">ng-cribs</a>
+        <a href="" class="navbar-brand">Market Place</a>
       </div>
     </div>
   </nav>
+
+  <div class="price-form mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="form-group col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Min Price</div>
+              </div>
+              <select class="form-control" name="minPrice" id="minPrice" ng-model="priceInfo.min">
+                <option value="100000">$100,000</option>
+                <option value="200000">$200,000</option>
+                <option value="300000">$300,000</option>
+                <option value="400000">$400,000</option>
+                <option value="500000">$500,000</option>
+                <option value="600000">$600,000</option>
+                <option value="700000">$700,000</option>
+                <option value="800000">$800,000</option>
+                <option value="900000">$900,000</option>
+                <option value="1000000">$1.000,000</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text bg-info text-light">Max Price</div>
+              </div>
+              <select class="form-control" name="maxPrice" id="maxPrice" ng-model="priceInfo.max">
+                <option value="100000">$100,000</option>
+                <option value="200000">$200,000</option>
+                <option value="300000">$300,000</option>
+                <option value="400000">$400,000</option>
+                <option value="500000">$500,000</option>
+                <option value="600000">$600,000</option>
+                <option value="700000">$700,000</option>
+                <option value="800000">$800,000</option>
+                <option value="900000">$900,000</option>
+                <option value="1000000">$1.000,000</option>
+              </select>
+          </div>
+        </div>
+      </div> 
+
+      <div class="listing-form text-center" ng-if="addListing">
+        <h3 class="h3">Add a Listing</h3>
+        <div class="row">
+          <div class="form-group col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Address</div>
+              </div>
+              <input type="text" placeholder="Enter the address" class="form-control" ng-model="newListing.address" />
+            </div>
+          </div>
+
+          <div class="form-group col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Price</div>
+              </div>
+              <input type="text" placeholder="Enter the address" class="form-control" ng-model="newListing.price" />
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Property Type</div>
+              </div>
+              <select class="form-control" name="propertyType" id="propertyType" ng-model="newListing.type">
+                <option value="100000">$100,000</option>
+                <option value="200000">$200,000</option>
+                <option value="300000">$300,000</option>
+                <option value="400000">$400,000</option>
+                <option value="500000">$500,000</option>
+                <option value="600000">$600,000</option>
+                <option value="700000">$700,000</option>
+                <option value="800000">$800,000</option>
+                <option value="900000">$900,000</option>
+                <option value="1000000">$1.000,000</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Description</div>
+              </div>
+              <input type="text" placeholder="Enter the address" class="form-control" ng-model="newListing.price" />
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Beds</div>
+              </div>
+              <input type="text" placeholder="Enter the address" class="form-control" ng-model="newListing.address" />
+            </div>
+          </div>
+
+          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Baths</div>
+              </div>
+              <input type="text" placeholder="Bathroom" class="form-control" ng-model="newListing.bathrooms" />
+            </div>
+          </div>
+
+          <div class="form-group col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">SqFt</div>
+              </div>
+              <input type="text" placeholder="Square Footage" class="form-control" ng-model="newListing.details.area" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <button class="btn btn-primary" ng-click="addListing = !addListing" ng-show="!addListing">
+          Add listing
+        </button>
+
+        <button class="btn btn-danger" ng-click="addListing = !addListing" ng-show="addListing">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
   
   <div class="container-fluid">
     <div class="row justify-content-center">
-      <div class="card col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mr-1" ng-repeat="crib in cribs" style="padding: 0; margin: 20px 0;">
+      <div class="card col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mr-1" ng-repeat="crib in cribs | cribsFilter:priceInfo" style="padding: 0; margin: 20px 0;">
         <img class="card-img-top" ng-src="images/{{crib.image}}.jpg" alt="Card image cap">
         <div class="card-body">
           <div class="caption">
@@ -48,9 +186,6 @@
       </div>
     </div>
   </div>
-
-
-  
   
   <script src="node_modules/angular/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
@@ -60,5 +195,6 @@
   <script src="app.js"></script>
   <script src="scripts/cribsController.js"></script>
   <script src="scripts/cribsFactory.js"></script>
+  <script src="scripts/cribsFilter.js"></script>
 </body>
 </html>
