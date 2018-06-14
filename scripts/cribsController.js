@@ -6,6 +6,13 @@ angular.module('ngCribs').controller('cribsController', function($scope, cribsFa
 		max: 1000000
 	}
 
+	$scope.newListing = {};
+
+	$scope.addCrib = function(newListing){
+		newListing.image = 'default-crib';
+		$scope.cribs.push(newListing);
+	}
+
 	cribsFactory.getCribs().success(function(data){
 		$scope.cribs = data;
 	}).error(function(error){
