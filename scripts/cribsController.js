@@ -11,6 +11,7 @@ angular.module('ngCribs').controller('cribsController', function($scope, cribsFa
 	$scope.addCrib = function(newListing){
 		newListing.image = 'default-crib';
 		$scope.cribs.push(newListing);
+		$scope.newListing = {};
 	}
 
 	cribsFactory.getCribs().success(function(data){
