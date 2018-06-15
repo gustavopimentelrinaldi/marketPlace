@@ -1,0 +1,21 @@
+.badge{
+	font-size: 16px;
+}
+
+button.btn-details, button.btn-close{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	border-radius: 0;
+	border: none;
+	width: 100%;
+}
+
+.pb-5 h1,h2,h3,h4,h5,h6{
+	font-weight: normal;
+}
+
+button.btn{
+	border: none;
+	border-radius: 0;
+}
